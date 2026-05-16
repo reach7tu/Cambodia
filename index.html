@@ -9,70 +9,74 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --ink: #1a1410;
-    --parchment: #f5f0e8;
-    --gold: #c9a84c;
-    --gold-light: #e8d5a0;
-    --rust: #8b3a1a;
-    --deep: #0d0b08;
-    --muted: #6b5f4e;
-    --border: rgba(201,168,76,0.3);
+    --bg: #ffffff;
+    --bg-soft: #f7f5f2;
+    --text: #1a1410;
+    --text-muted: #6b5f4e;
+    --gold: #9a6f2e;
+    --border: rgba(0,0,0,0.1);
+    --nav-bg: #1a1410;
+    --hero-bg: #1a1410;
   }
-  body { background: var(--deep); color: var(--parchment); font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.8; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(13,11,8,0.95); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 15px; letter-spacing: 0.08em; color: var(--gold); text-transform: uppercase; }
-  .nav-links { display: flex; gap: 0; list-style: none; }
-  .nav-links a { color: rgba(245,240,232,0.55); text-decoration: none; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 0.9rem; transition: color 0.2s; font-family: 'Source Serif 4', serif; }
-  .nav-links a:hover { color: var(--gold); }
-  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 2rem 4rem; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 60%, #1c1208 0%, var(--deep) 70%); }
-  .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(201,168,76,0.015) 2px, rgba(201,168,76,0.015) 4px); pointer-events: none; }
-  .hero-kh { font-size: 13px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; font-family: 'Source Serif 4', serif; font-weight: 300; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; line-height: 1.1; color: var(--parchment); max-width: 700px; margin-bottom: 0.5rem; }
-  .hero h1 em { color: var(--gold); font-style: italic; }
-  .hero-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.25rem; color: rgba(245,240,232,0.6); margin-top: 1.2rem; max-width: 520px; }
-  .hero-thesis { margin-top: 3rem; max-width: 640px; padding: 1.5rem 2rem; border-left: 3px solid var(--gold); text-align: left; background: rgba(201,168,76,0.05); }
-  .hero-thesis p { font-size: 1.05rem; line-height: 1.75; color: rgba(245,240,232,0.85); font-style: italic; }
-  .hero-thesis .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-style: normal; font-family: 'Source Serif 4', serif; display: block; margin-bottom: 0.6rem; }
-  .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.4; }
-  .scroll-hint span { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-  .scroll-arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
-  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
-  .timeline-nav { background: rgba(201,168,76,0.06); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2rem; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; }
-  .tl-item { padding: 1rem; cursor: pointer; text-align: center; border-right: 1px solid var(--border); transition: background 0.2s; }
+  body { background: var(--bg); color: var(--text); font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.8; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--nav-bg); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 14px; letter-spacing: 0.08em; color: #c9a84c; text-transform: uppercase; }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 0.9rem; transition: color 0.2s; }
+  .nav-links a:hover { color: #c9a84c; }
+
+  /* HERO — keep dark for contrast */
+  .hero { min-height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 2rem 4rem; background: var(--hero-bg); }
+  .hero-kh { font-size: 12px; letter-spacing: 0.25em; color: #c9a84c; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 300; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; line-height: 1.1; color: #f5f0e8; max-width: 700px; margin-bottom: 0.5rem; }
+  .hero h1 em { color: #c9a84c; font-style: italic; }
+  .hero-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: rgba(245,240,232,0.6); margin-top: 1.2rem; max-width: 500px; }
+  .hero-thesis { margin-top: 3rem; max-width: 620px; padding: 1.5rem 2rem; border-left: 3px solid #c9a84c; text-align: left; background: rgba(255,255,255,0.05); }
+  .hero-thesis .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a84c; display: block; margin-bottom: 0.5rem; }
+  .hero-thesis p { font-size: 1rem; line-height: 1.75; color: rgba(245,240,232,0.85); font-style: italic; }
+  .scroll-hint { margin-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.35; }
+  .scroll-hint span { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a84c; }
+  .scroll-arrow { width: 1px; height: 36px; background: linear-gradient(to bottom, #c9a84c, transparent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.9} }
+
+  /* TIMELINE */
+  .timeline-nav { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; display: grid; grid-template-columns: repeat(6, 1fr); }
+  .tl-item { padding: 0.8rem 0.5rem; cursor: pointer; text-align: center; border-right: 1px solid var(--border); transition: background 0.2s; }
   .tl-item:last-child { border-right: none; }
-  .tl-item:hover { background: rgba(201,168,76,0.08); }
-  .tl-year { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); display: block; }
-  .tl-title { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(245,240,232,0.45); margin-top: 0.3rem; display: block; line-height: 1.4; }
-  .chapter { max-width: 800px; margin: 0 auto; padding: 5rem 2rem; border-bottom: 1px solid var(--border); }
-  .chapter-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-  .chapter-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: rgba(201,168,76,0.15); line-height: 1; font-weight: 700; }
+  .tl-item:hover { background: rgba(0,0,0,0.04); }
+  .tl-year { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); display: block; font-weight: 700; }
+  .tl-title { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem; display: block; line-height: 1.4; }
+
+  /* CHAPTER */
+  .chapter { max-width: 760px; margin: 0 auto; padding: 5rem 2rem; border-bottom: 1px solid var(--border); }
+  .chapter-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .chapter-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: rgba(0,0,0,0.07); line-height: 1; font-weight: 700; }
   .chapter-era { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; }
-  .chapter-dates { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: rgba(245,240,232,0.45); display: block; }
-  .chapter h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.2; color: var(--parchment); margin-bottom: 2rem; }
-  .img-placeholder { width: 100%; height: 320px; background: rgba(201,168,76,0.04); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2rem; }
-  .img-placeholder span { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(201,168,76,0.35); }
-  .img-placeholder .img-caption-preview { font-style: italic; font-size: 12px; color: rgba(245,240,232,0.25); letter-spacing: 0; text-transform: none; max-width: 300px; text-align: center; }
-  .chapter p { font-size: 1.05rem; line-height: 1.85; color: rgba(245,240,232,0.82); margin-bottom: 1.4rem; }
-  .chapter p:first-of-type::first-letter { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; float: left; line-height: 0.85; margin: 0.1rem 0.15rem 0 0; color: var(--gold); }
-  .pull-quote { border-left: 3px solid var(--gold); padding: 1.2rem 1.5rem; margin: 2.5rem 0; background: rgba(201,168,76,0.05); }
-  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: rgba(245,240,232,0.9); margin: 0; }
+  .chapter-dates { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.95rem; color: var(--text-muted); display: block; }
+  .chapter h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.25; color: var(--text); margin-bottom: 2rem; }
+  .img-placeholder { width: 100%; height: 280px; background: var(--bg-soft); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; margin-bottom: 2rem; }
+  .img-placeholder span { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,0,0,0.25); }
+  .img-caption { font-style: italic; font-size: 12px; color: rgba(0,0,0,0.3); max-width: 300px; text-align: center; }
+  .chapter p { font-size: 1.05rem; line-height: 1.85; color: #2a2420; margin-bottom: 1.4rem; }
+  .chapter p:first-of-type::first-letter { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700; float: left; line-height: 0.85; margin: 0.1rem 0.15rem 0 0; color: var(--gold); }
+  .pull-quote { border-left: 3px solid var(--gold); padding: 1rem 1.5rem; margin: 2.5rem 0; background: var(--bg-soft); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: var(--text); margin: 0; }
   .pull-quote p::first-letter { all: unset; }
-  .pull-quote cite { display: block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-top: 0.8rem; font-style: normal; }
-  .citation-inline { font-size: 0.8em; color: var(--gold); vertical-align: super; font-style: normal; cursor: default; }
-  .chapter-sources { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
-  .chapter-sources h4 { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
-  .chapter-sources ul { list-style: none; padding: 0; }
-  .chapter-sources li { font-size: 0.85rem; color: rgba(245,240,232,0.45); padding: 0.3rem 0; border-bottom: 1px solid rgba(201,168,76,0.08); font-style: italic; }
-  .chapter-sources li strong { font-style: normal; color: rgba(245,240,232,0.65); }
-  .bibliography { max-width: 800px; margin: 0 auto; padding: 5rem 2rem; }
-  .bib-header { text-align: center; margin-bottom: 3rem; }
-  .bib-header h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--parchment); margin-bottom: 0.5rem; }
-  .bib-header p { font-size: 0.9rem; color: rgba(245,240,232,0.4); font-style: italic; }
-  .bib-section h3 { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-  .bib-entry { padding: 0.9rem 0; border-bottom: 1px solid rgba(201,168,76,0.07); font-size: 0.92rem; line-height: 1.6; color: rgba(245,240,232,0.7); }
-  .bib-entry em { color: rgba(245,240,232,0.5); }
-  .bib-badge { display: inline-block; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; background: rgba(201,168,76,0.12); color: var(--gold); border-radius: 2px; margin-left: 8px; vertical-align: middle; font-style: normal; }
-  footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: rgba(245,240,232,0.3); font-style: italic; }
+  .pull-quote cite { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 0.7rem; font-style: normal; }
+  sup.cite { font-size: 0.75em; color: var(--gold); font-style: normal; cursor: default; vertical-align: super; }
+
+  /* BIBLIOGRAPHY */
+  .bibliography { max-width: 760px; margin: 0 auto; padding: 5rem 2rem; }
+  .bib-header { margin-bottom: 2.5rem; border-bottom: 2px solid var(--text); padding-bottom: 1rem; }
+  .bib-header h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text); }
+  .bib-section { margin-bottom: 2rem; }
+  .bib-section h3 { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+  .bib-entry { padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; line-height: 1.65; color: var(--text); }
+  .bib-entry em { font-style: italic; }
+
+  footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--text-muted); font-style: italic; background: var(--bg-soft); }
   a { color: inherit; text-decoration: none; }
   html { scroll-behavior: smooth; }
 </style>
@@ -108,28 +112,22 @@
 
 <div class="timeline-nav">
   <div class="tl-item" onclick="document.getElementById('ch1').scrollIntoView({behavior:'smooth'})">
-    <span class="tl-year">1863</span>
-    <span class="tl-title">French Protectorate</span>
+    <span class="tl-year">1863</span><span class="tl-title">French Protectorate</span>
   </div>
   <div class="tl-item" onclick="document.getElementById('ch2').scrollIntoView({behavior:'smooth'})">
-    <span class="tl-year">1953</span>
-    <span class="tl-title">Independence & Golden Era</span>
+    <span class="tl-year">1953</span><span class="tl-title">Independence & Golden Era</span>
   </div>
   <div class="tl-item" onclick="document.getElementById('ch3').scrollIntoView({behavior:'smooth'})">
-    <span class="tl-year">1970</span>
-    <span class="tl-title">Civil War</span>
+    <span class="tl-year">1970</span><span class="tl-title">Civil War</span>
   </div>
   <div class="tl-item" onclick="document.getElementById('ch4').scrollIntoView({behavior:'smooth'})">
-    <span class="tl-year">1975</span>
-    <span class="tl-title">Khmer Rouge</span>
+    <span class="tl-year">1975</span><span class="tl-title">Khmer Rouge</span>
   </div>
   <div class="tl-item" onclick="document.getElementById('ch5').scrollIntoView({behavior:'smooth'})">
-    <span class="tl-year">1979</span>
-    <span class="tl-title">Vietnamese Liberation</span>
+    <span class="tl-year">1979</span><span class="tl-title">Vietnamese Liberation</span>
   </div>
   <div class="tl-item" onclick="document.getElementById('ch6').scrollIntoView({behavior:'smooth'})">
-    <span class="tl-year">1991</span>
-    <span class="tl-title">UN & Democracy</span>
+    <span class="tl-year">1991</span><span class="tl-title">UN & Democracy</span>
   </div>
 </div>
 
@@ -137,7 +135,7 @@
 <section class="chapter" id="ch1">
   <div class="chapter-meta">
     <span class="chapter-num">01</span>
-    <div class="chapter-meta-text">
+    <div>
       <span class="chapter-era">Chapter One</span>
       <span class="chapter-dates">1863 – 1953</span>
     </div>
@@ -145,29 +143,22 @@
   <h2>The French Protectorate: Colonialism in the Guise of Protection</h2>
   <div class="img-placeholder">
     <span>[ Photo ]</span>
-    <span class="img-caption-preview">French colonial officials in Phnom Penh, early 20th century</span>
+    <span class="img-caption">French colonial officials in Phnom Penh, early 20th century</span>
   </div>
-  <p>In 1863, France established a "protectorate" over Cambodia. The word was chosen carefully. A protectorate implied guardianship, not conquest. King Norodom I signed the treaty because he believed French power would protect Cambodia from Thai and Vietnamese pressure. Instead, he gave up real control over taxation, trade, and governance to a colonial administration based in Saigon.<span class="citation-inline">[1]</span></p>
-  <p>French rule in Cambodia worked through indirect control. The king stayed on the throne. The royal court kept its ceremonies. Khmer culture was officially preserved. But the real power sat elsewhere. French administrators controlled the country's finances, extracted rubber and rice for export, and rebuilt Phnom Penh in a French style. Rural Cambodians paid the cost through taxes and forced labor.<span class="citation-inline">[2]</span></p>
+  <p>In 1863, France established a "protectorate" over Cambodia. The word was chosen carefully. A protectorate implied guardianship, not conquest. King Norodom I signed the treaty because he believed French power would protect Cambodia from Thai and Vietnamese pressure. Instead, he gave up real control over taxation, trade, and governance to a colonial administration based in Saigon.<sup class="cite">[1]</sup></p>
+  <p>French rule in Cambodia worked through indirect control. The king stayed on the throne. The royal court kept its ceremonies. Khmer culture was officially preserved. But the real power sat elsewhere. French administrators controlled the country's finances, extracted rubber and rice for export, and rebuilt Phnom Penh in a French style. Rural Cambodians paid the cost through taxes and forced labor.<sup class="cite">[2]</sup></p>
   <div class="pull-quote">
     <p>The protectorate was not protection. It was administration by another name: sovereignty kept on the surface, hollowed out underneath.</p>
     <cite>— Adapted from Milton Osborne, <em>Sihanouk: Prince of Light, Prince of Darkness</em></cite>
   </div>
-  <p>France also planted the seeds of its own undoing. The colonial education system produced a small class of Khmer intellectuals. They read French political philosophy and absorbed ideas about self-determination. They began to ask why those ideas did not apply to them. By the 1940s, the Japanese occupation of Indochina had broken the idea that European rule was natural or permanent. Japan briefly encouraged Cambodian independence in March 1945. That moment proved that French rule was a political arrangement. Arrangements can be changed.<span class="citation-inline">[1]</span></p>
-  <div class="chapter-sources">
-    <h4>Sources cited in this chapter</h4>
-    <ul>
-      <li><strong>[1]</strong> Chandler, David P. <em>A History of Cambodia.</em> Westview Press, 2008, p. 45.</li>
-      <li><strong>[2]</strong> [Academic source — to be confirmed via library]</li>
-    </ul>
-  </div>
+  <p>France also planted the seeds of its own undoing. The colonial education system produced a small class of Khmer intellectuals. They read French political philosophy and absorbed ideas about self-determination. They began to ask why those ideas did not apply to them. By the 1940s, the Japanese occupation of Indochina had broken the idea that European rule was natural or permanent. Japan briefly encouraged Cambodian independence in March 1945. That moment proved that French rule was a political arrangement. Arrangements can be changed.<sup class="cite">[1]</sup></p>
 </section>
 
 <!-- CHAPTER 2 -->
 <section class="chapter" id="ch2">
   <div class="chapter-meta">
     <span class="chapter-num">02</span>
-    <div class="chapter-meta-text">
+    <div>
       <span class="chapter-era">Chapter Two</span>
       <span class="chapter-dates">1953 – 1970</span>
     </div>
@@ -175,28 +166,21 @@
   <h2>Independence and the Golden Era: Sovereignty's Fleeting Moment</h2>
   <div class="img-placeholder">
     <span>[ Photo ]</span>
-    <span class="img-caption-preview">Prince Norodom Sihanouk at independence celebrations, Phnom Penh, 1953</span>
+    <span class="img-caption">Prince Norodom Sihanouk at independence celebrations, Phnom Penh, 1953</span>
   </div>
-  <p>On November 9, 1953, Cambodia became formally independent. Prince Norodom Sihanouk won that independence through a very public campaign. He abdicated his throne to become a politician, then traveled the world to argue Cambodia's case for self-rule. The years that followed, roughly 1955 to 1970, are remembered as the <em>Sangkum</em> era, or the Golden Era. Cambodia was at peace, culture was growing, and national pride was real.<span class="citation-inline">[2]</span></p>
-  <p>Phnom Penh in the 1960s was a lively city. Cambodian rock music mixed with traditional sounds. Sihanouk himself wrote films and composed music. Architects trained in France designed new buildings in a Cambodian modern style. The country was poor, but it was its own.<span class="citation-inline">[3]</span></p>
+  <p>On November 9, 1953, Cambodia became formally independent. Prince Norodom Sihanouk won that independence through a very public campaign. He abdicated his throne to become a politician, then traveled the world to argue Cambodia's case for self-rule. The years that followed, roughly 1955 to 1970, are remembered as the <em>Sangkum</em> era, or the Golden Era. Cambodia was at peace, culture was growing, and national pride was real.<sup class="cite">[2]</sup></p>
+  <p>Phnom Penh in the 1960s was a lively city. Cambodian rock music mixed with traditional sounds. Sihanouk himself wrote films and composed music. Architects trained in France designed new buildings in a Cambodian modern style. The country was poor, but it was its own.<sup class="cite">[3]</sup></p>
   <div class="pull-quote">
     <p>Sihanouk accepted aid from both Washington and Beijing while calling Cambodia neutral. For a time, that balance held.</p>
   </div>
-  <p>But the Golden Era was fragile. The Vietnam War was consuming everything around Cambodia. The United States saw Cambodian neutrality as a problem. Sihanouk allowed North Vietnamese supply lines to run through Cambodian territory, a route known as the Sihanouk Trail. He made that choice to avoid provoking a direct American response. It was a reasonable calculation. It did not hold.<span class="citation-inline">[3]</span></p>
-  <div class="chapter-sources">
-    <h4>Sources cited in this chapter</h4>
-    <ul>
-      <li><strong>[2]</strong> [Academic source — to be confirmed via library]</li>
-      <li><strong>[3]</strong> [Academic source — to be confirmed via library]</li>
-    </ul>
-  </div>
+  <p>But the Golden Era was fragile. The Vietnam War was consuming everything around Cambodia. The United States saw Cambodian neutrality as a problem. Sihanouk allowed North Vietnamese supply lines to run through Cambodian territory, a route known as the Sihanouk Trail. He made that choice to avoid provoking a direct American response. It was a reasonable calculation. It did not hold.<sup class="cite">[3]</sup></p>
 </section>
 
 <!-- CHAPTER 3 -->
 <section class="chapter" id="ch3">
   <div class="chapter-meta">
     <span class="chapter-num">03</span>
-    <div class="chapter-meta-text">
+    <div>
       <span class="chapter-era">Chapter Three</span>
       <span class="chapter-dates">1970 – 1975</span>
     </div>
@@ -204,27 +188,21 @@
   <h2>The US, the Coup, and the Conditions That Created the Khmer Rouge</h2>
   <div class="img-placeholder">
     <span>[ Photo ]</span>
-    <span class="img-caption-preview">B-52 bombing craters in eastern Cambodia, photographed by USAF, early 1970s</span>
+    <span class="img-caption">B-52 bombing craters in eastern Cambodia, photographed by USAF, early 1970s</span>
   </div>
-  <p>In March 1970, while Sihanouk was abroad, General Lon Nol seized power in a coup. Most historians believe Washington supported it, or at least welcomed it. The new government invited American military involvement. What followed was one of the most intense bombing campaigns in history. Operation Menu and Operation Freedom Deal dropped more explosives on Cambodia than the United States dropped on Japan in all of World War II. The targets were supposed to be North Vietnamese supply lines. Most of the people who died were Cambodian civilians.<span class="citation-inline">[4]</span></p>
-  <p>The bombing did not destroy the Khmer Rouge. It created them. Before 1970, the movement was small and marginal. The bombing of the countryside drove hundreds of thousands of Cambodians into the arms of any group that promised to fight back. Scholar Ben Kiernan documented how Khmer Rouge recruitment grew in direct proportion to the bombing in each district.<span class="citation-inline">[4]</span></p>
+  <p>In March 1970, while Sihanouk was abroad, General Lon Nol seized power in a coup. Most historians believe Washington supported it, or at least welcomed it. The new government invited American military involvement. What followed was one of the most intense bombing campaigns in history. Operation Menu and Operation Freedom Deal dropped more explosives on Cambodia than the United States dropped on Japan in all of World War II. The targets were supposed to be North Vietnamese supply lines. Most of the people who died were Cambodian civilians.<sup class="cite">[4]</sup></p>
+  <p>The bombing did not destroy the Khmer Rouge. It created them. Before 1970, the movement was small and marginal. The bombing of the countryside drove hundreds of thousands of Cambodians into the arms of any group that promised to fight back. Ben Kiernan and Taylor Owen documented how Khmer Rouge recruitment grew in direct proportion to the bombing in each district.<sup class="cite">[4]</sup></p>
   <div class="pull-quote">
     <p>The United States did not intend to create the Khmer Rouge. But intention is not the same as consequence, and consequence is what history records.</p>
   </div>
-  <p>By 1973, Lon Nol's government controlled little beyond the major cities. The Khmer Rouge held the countryside and had real backing from China. On April 17, 1975, Khmer Rouge soldiers marched into Phnom Penh. Residents came out to greet them. Within hours, the city was being emptied at gunpoint.<span class="citation-inline">[4]</span></p>
-  <div class="chapter-sources">
-    <h4>Sources cited in this chapter</h4>
-    <ul>
-      <li><strong>[4]</strong> [Academic source — to be confirmed via library]</li>
-    </ul>
-  </div>
+  <p>By 1973, Lon Nol's government controlled little beyond the major cities. The Khmer Rouge held the countryside and had real backing from China. On April 17, 1975, Khmer Rouge soldiers marched into Phnom Penh. Residents came out to greet them. Within hours, the city was being emptied at gunpoint.<sup class="cite">[4]</sup></p>
 </section>
 
 <!-- CHAPTER 4 -->
 <section class="chapter" id="ch4">
   <div class="chapter-meta">
     <span class="chapter-num">04</span>
-    <div class="chapter-meta-text">
+    <div>
       <span class="chapter-era">Chapter Four</span>
       <span class="chapter-dates">1975 – 1979</span>
     </div>
@@ -232,29 +210,22 @@
   <h2>Democratic Kampuchea: The Khmer Rouge Genocide</h2>
   <div class="img-placeholder">
     <span>[ Photo ]</span>
-    <span class="img-caption-preview">Tuol Sleng (S-21) prison, Phnom Penh — now the Genocide Museum</span>
+    <span class="img-caption">Tuol Sleng (S-21) prison, Phnom Penh — now the Genocide Museum</span>
   </div>
-  <p>The Khmer Rouge renamed the country Democratic Kampuchea and declared "Year Zero." History was to be erased. Society would be rebuilt from nothing. Cities were emptied. Money was abolished. Schools, hospitals, and temples were shut down or destroyed. The educated, the urban, ethnic Vietnamese, and Buddhist monks were all labeled enemies. In the labor camps and killing fields, an estimated 1.7 to 2.5 million people died in less than four years. That was between one fifth and one quarter of Cambodia's entire population.<span class="citation-inline">[4, 5]</span></p>
-  <p>The regime ran a network of prisons. The most known was Tuol Sleng, or S-21, a former high school converted into a torture and interrogation center. About 17,000 people entered S-21. Fewer than a dozen survived. The Khmer Rouge kept careful records: photographs, confessions, lists. Those records still exist today as evidence.<span class="citation-inline">[5]</span></p>
+  <p>The Khmer Rouge renamed the country Democratic Kampuchea and declared "Year Zero." History was to be erased. Society would be rebuilt from nothing. Cities were emptied. Money was abolished. Schools, hospitals, and temples were shut down or destroyed. The educated, the urban, ethnic Vietnamese, and Buddhist monks were all labeled enemies. In the labor camps and killing fields, an estimated 1.7 to 2.5 million people died in less than four years. That was between one fifth and one quarter of Cambodia's entire population.<sup class="cite">[1, 4]</sup></p>
+  <p>The regime ran a network of prisons. The most known was Tuol Sleng, or S-21, a former high school converted into a torture and interrogation center. About 17,000 people entered S-21. Fewer than a dozen survived. The Khmer Rouge kept careful records: photographs, confessions, lists. Those records still exist today as evidence.<sup class="cite">[1]</sup></p>
   <div class="pull-quote">
     <p>What made Democratic Kampuchea different was not just its cruelty. The state did not only want to control people. It wanted to remake them into something new entirely.</p>
     <cite>— Ben Kiernan, <em>The Pol Pot Regime</em></cite>
   </div>
   <p>The world largely ignored what was happening. Cold War politics made it hard for Western nations to condemn a regime that China supported. Cambodia had sovereignty on paper. In reality, the country had no freedom at all.</p>
-  <div class="chapter-sources">
-    <h4>Sources cited in this chapter</h4>
-    <ul>
-      <li><strong>[4]</strong> [Academic source — to be confirmed via library]</li>
-      <li><strong>[5]</strong> Ben Kiernan, <em>The Pol Pot Regime</em> — [confirm via library]</li>
-    </ul>
-  </div>
 </section>
 
 <!-- CHAPTER 5 -->
 <section class="chapter" id="ch5">
   <div class="chapter-meta">
     <span class="chapter-num">05</span>
-    <div class="chapter-meta-text">
+    <div>
       <span class="chapter-era">Chapter Five</span>
       <span class="chapter-dates">1979 – 1991</span>
     </div>
@@ -262,28 +233,21 @@
   <h2>The Vietnamese Intervention and the Long Road to Paris</h2>
   <div class="img-placeholder">
     <span>[ Photo ]</span>
-    <span class="img-caption-preview">Vietnamese forces entering Phnom Penh, January 1979</span>
+    <span class="img-caption">Vietnamese forces entering Phnom Penh, January 1979</span>
   </div>
-  <p>On January 7, 1979, Vietnamese forces entered Phnom Penh and ended the Khmer Rouge regime. For most Cambodians, it was liberation. For the international community, it was a legal problem. Vietnam was a Soviet ally, and China backed the Khmer Rouge. The United Nations continued to seat the Khmer Rouge as Cambodia's official representative for years after their fall. Recognizing the Vietnamese-backed government would have meant accepting Soviet influence in the region. Cold War logic won out over basic decency.<span class="citation-inline">[3, 5]</span></p>
-  <p>The decade that followed was slow and painful. The Vietnamese-backed People's Republic of Kampuchea tried to rebuild the country. The genocide had killed doctors, teachers, engineers, monks, and most of a generation of educated people. Rebuilding was not just political. It was rebuilding a society from almost nothing. Vietnam withdrew its forces in 1989, leaving behind a government but no final settlement.<span class="citation-inline">[3]</span></p>
+  <p>On January 7, 1979, Vietnamese forces entered Phnom Penh and ended the Khmer Rouge regime. For most Cambodians, it was liberation. For the international community, it was a legal problem. Vietnam was a Soviet ally, and China backed the Khmer Rouge. The United Nations continued to seat the Khmer Rouge as Cambodia's official representative for years after their fall. Recognizing the Vietnamese-backed government would have meant accepting Soviet influence in the region. Cold War logic won out over basic decency.<sup class="cite">[3, 5]</sup></p>
+  <p>The decade that followed was slow and painful. The Vietnamese-backed People's Republic of Kampuchea tried to rebuild the country. The genocide had killed doctors, teachers, engineers, monks, and most of a generation of educated people. Rebuilding was not just political. It was rebuilding a society from almost nothing. Vietnam withdrew its forces in 1989, leaving behind a government but no final settlement.<sup class="cite">[3]</sup></p>
   <div class="pull-quote">
     <p>Cambodia's liberators were also its occupiers. The world refused to fully acknowledge either truth.</p>
   </div>
-  <p>Years of diplomacy led to the 1991 Paris Peace Accords. The accords ended the civil conflict and arranged a ceasefire among all warring groups, including a Khmer Rouge that still existed. They also established a United Nations mission, UNTAC, with a rare mandate: to run the country through free elections.</p>
-  <div class="chapter-sources">
-    <h4>Sources cited in this chapter</h4>
-    <ul>
-      <li><strong>[3]</strong> [Academic source — to be confirmed via library]</li>
-      <li><strong>[5]</strong> [Academic source — to be confirmed via library]</li>
-    </ul>
-  </div>
+  <p>Years of diplomacy led to the 1991 Paris Peace Accords. The accords ended the civil conflict and arranged a ceasefire among all warring groups, including a Khmer Rouge that still existed. They also established a United Nations mission, UNTAC, with a rare mandate: to run the country through free elections.<sup class="cite">[5]</sup></p>
 </section>
 
 <!-- CHAPTER 6 -->
 <section class="chapter" id="ch6">
   <div class="chapter-meta">
     <span class="chapter-num">06</span>
-    <div class="chapter-meta-text">
+    <div>
       <span class="chapter-era">Chapter Six</span>
       <span class="chapter-dates">1991 – Present</span>
     </div>
@@ -291,53 +255,46 @@
   <h2>UNTAC, Elections, and What "Democracy" Looks Like in Cambodia Today</h2>
   <div class="img-placeholder">
     <span>[ Photo ]</span>
-    <span class="img-caption-preview">Cambodians queuing to vote in the 1993 UNTAC-supervised elections</span>
+    <span class="img-caption">Cambodians queuing to vote in the 1993 UNTAC-supervised elections</span>
   </div>
-  <p>The 1993 elections run by UNTAC were a real achievement. Nearly 90 percent of registered voters turned out, despite Khmer Rouge threats. The royalist party FUNCINPEC won the most seats. Hun Sen's Cambodian People's Party came second but refused to accept the result. After a political crisis, Cambodia ended up with two co-prime ministers. The arrangement satisfied no one. It ended in 1997 when Hun Sen removed his co-premier by force and took full control.<span class="citation-inline">[5]</span></p>
-  <p>The decades since have brought real development. Poverty has fallen. Infrastructure has grown. Phnom Penh is a modern city. But democratic institutions have been steadily weakened. Opposition parties have been dissolved. Independent media has been shut down. In 2023, Hun Sen transferred power to his son Hun Manet in what was officially an election but was in practice a family handover. Cambodia today has the structure of a democracy but not the substance of one.<span class="citation-inline">[5]</span></p>
+  <p>The 1993 elections run by UNTAC were a real achievement. Nearly 90 percent of registered voters turned out, despite Khmer Rouge threats. The royalist party FUNCINPEC won the most seats. Hun Sen's Cambodian People's Party came second but refused to accept the result. After a political crisis, Cambodia ended up with two co-prime ministers. The arrangement satisfied no one. It ended in 1997 when Hun Sen removed his co-premier by force and took full control.<sup class="cite">[5]</sup></p>
+  <p>The decades since have brought real development. Poverty has fallen. Infrastructure has grown. Phnom Penh is a modern city. But democratic institutions have been steadily weakened. Opposition parties have been dissolved. Independent media has been shut down. In 2023, Hun Sen transferred power to his son Hun Manet in what was officially an election but was in practice a family handover. Cambodia today has the structure of a democracy but not the substance of one.<sup class="cite">[5]</sup></p>
   <div class="pull-quote">
     <p>The same pattern runs through all of Cambodia's modern history: sovereignty arrives with promise, then is taken away again, slowly or suddenly.</p>
   </div>
   <p>Whether this is the end of that cycle or just the latest version of it is still an open question. What is clear is that Cambodians have survived colonialism, Cold War conflict, genocide, occupation, and controlled democracy. That record of survival has to be at the center of any honest account of this country.</p>
-  <div class="chapter-sources">
-    <h4>Sources cited in this chapter</h4>
-    <ul>
-      <li><strong>[5]</strong> [Academic source — to be confirmed via library]</li>
-    </ul>
-  </div>
 </section>
 
 <!-- BIBLIOGRAPHY -->
 <section class="bibliography" id="bibliography">
   <div class="bib-header">
     <h2>Bibliography</h2>
-    <p>Sources to be verified and completed via UMBC library</p>
   </div>
   <div class="bib-section">
-    <h3>Academic Books</h3>
+    <h3>Books</h3>
     <div class="bib-entry">
-      <strong>[Source 1]</strong>Kiernan, Ben. The Pol Pot Regime : Race, Power, and Genocide in Cambodia under the Khmer Rouge, 1975-79. Yale University Press, 2008.
+      [1] Kiernan, Ben. <em>The Pol Pot Regime: Race, Power, and Genocide in Cambodia under the Khmer Rouge, 1975–79.</em> Yale University Press, 2008.
     </div>
     <div class="bib-entry">
-      <strong>[Source 2</strong>Osborne, Milton E. Sihanouk : Prince of Light, Prince of Darkness. University of Hawaii Press, 1994.
+      [2] Osborne, Milton E. <em>Sihanouk: Prince of Light, Prince of Darkness.</em> University of Hawaii Press, 1994.
     </div>
     <div class="bib-entry">
-      <strong>[Source 3]</strong> - Chandler, David. A History of Cambodia. 4th ed., Routledge, 2008, https://doi.org/10.4324/9780429495519.
-    </div>
-  </div>
-  <div class="bib-section" style="margin-top: 2rem;">
-    <h3>Academic Journal Articles</h3>
-    <div class="bib-entry">
-      <strong>[Source 4]</strong> - Owen, Taylor and Ben Kiernan. "Making More Enemies Than We Kill? Calculating U.S. Bomb Tonnages Dropped on Laos and Cambodia, and Weighing Their Implications." Asia-Pacific Journal: Japan Focus, vol. 13, issue 16, no. 3, April 27, 2015
-    </div>
-    <div class="bib-entry">
-      <strong>[Source 5]</strong> - Doyle, Michael W. "UN Peacekeeping in Cambodia: UNTAC's Civil Mandate." International Peace Academy, 1995.
+      [3] Chandler, David. <em>A History of Cambodia.</em> 4th ed., Routledge, 2008.
     </div>
   </div>
-  <div class="bib-section" style="margin-top: 2rem;">
+  <div class="bib-section">
+    <h3>Journal Articles</h3>
+    <div class="bib-entry">
+      [4] Owen, Taylor, and Ben Kiernan. "Making More Enemies Than We Kill? Calculating U.S. Bomb Tonnages Dropped on Laos and Cambodia, and Weighing Their Implications." <em>Asia-Pacific Journal: Japan Focus</em>, vol. 13, issue 16, no. 3, 27 Apr. 2015.
+    </div>
+    <div class="bib-entry">
+      [5] Doyle, Michael W. <em>UN Peacekeeping in Cambodia: UNTAC's Civil Mandate.</em> International Peace Academy, 1995.
+    </div>
+  </div>
+  <div class="bib-section">
     <h3>Additional Sources</h3>
     <div class="bib-entry">
-      Documentation Center of Cambodia (DC-Cam). <em>Searching for the Truth.</em> Reliable NGO archive on the Khmer Rouge era. <span class="bib-badge">Reliable website</span>
+      Documentation Center of Cambodia (DC-Cam). <em>Searching for the Truth.</em> dccam.org.
     </div>
   </div>
 </section>
